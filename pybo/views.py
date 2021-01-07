@@ -24,7 +24,7 @@ def index(request):
 
     context = {'question_list': page_obj}
 
-    return render(request, 'question_list.html', context)
+    return render(request, 'pybo/question_list.html', context)
 
 
 def detail(request, question_id):
@@ -34,7 +34,7 @@ def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     content = {'question': question}
 
-    return render(request, 'question_detail.html', content)
+    return render(request, 'pybo/question_detail.html', content)
 
 
 def answer_create(request, question_id):
@@ -52,7 +52,7 @@ def answer_create(request, question_id):
     else:
         form = AnswerForm()
     context = {'question': question, 'form': form}
-    return render(request, 'question_detail.html', context)
+    return render(request, 'pybo/question_detail.html', context)
 
 
 def question_create(request):
@@ -69,4 +69,4 @@ def question_create(request):
     else:
         form = QuestionForm()
     context = {'form': form}
-    return render(request, 'question_form.html', context)
+    return render(request, 'pybo/question_form.html', context)
